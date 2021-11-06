@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Image BLIK</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="/login/auth" method="POST" class="form-wrapper">
+        <h2>Login</h2>
+        <div class="input-text-container login">
+          <input
+            class="text-input"
+            name="text"
+            type="text"
+            placeholder="Your code"
+          />
+          <span class="line"></span>
+          <% if (typeof message !== 'undefined' && message.length > 0) { %>
+            <p class="error active"><%= message %></p>
+          <% } else { %>
+            <p class="error"></p>
+          <% } %>
+        </div>
+        <button type="submit" class="btn">Accept</button>
+      </form>
+    </div>
+    <script defer src="login.js"></script>
+  </body>
+</html>
