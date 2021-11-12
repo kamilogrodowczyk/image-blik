@@ -2,7 +2,7 @@ const form = document.querySelector("form");
 const input = document.querySelector(".text-input");
 
 form.addEventListener("submit", async (e) => {
-  await fetch("http://localhost:5000/image-json")
+  await fetch("https://image-blik.herokuapp.com/image-json")
     .then((res) => res.json())
     .then((data) =>
       input.value === data[0].randomPassword
