@@ -13,7 +13,7 @@ router.post("/login/auth", async (req, res) => {
     });
 
     if (!image) {
-      return res.redirect('/login');
+     return res.status(400).send('Bad Authentication');
     }
   } catch (error) {
     return res.render("login.ejs", { err: 'Bad Authentication' });
