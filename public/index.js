@@ -1,5 +1,13 @@
-import styles from "./styles.css";
-import { selectImages, createPassword, copyValue } from "./helpers.js";
+import "./styles.css";
+import "intl-tel-input/build/css/intlTelInput.css";
+import { selectImages } from "../public/helpers/selectImages";
+import { createPassword } from "../public/helpers/createPassword";
+import { copyValue } from "../public/helpers/copyValue";
+import {
+  addIntlTelInputToArray,
+  addCountryCode,
+} from "../public/helpers/addCountryCode";
+
 const inputImage = document.querySelector('input[type="file"]');
 const inputPassword = document.querySelector('input[name="random_password"]');
 const formButton = document.querySelector('button[type="submit"]');
@@ -7,8 +15,6 @@ const form = document.querySelector("form");
 const copyButton = document.querySelector(".copy-btn");
 const copyAlert = document.querySelector(".copy-alert");
 const imageContainer = document.querySelector(".image-leftbar");
-
-localStorage.removeItem("token");
 
 inputImage.addEventListener("change", (e) => {
   const files = e.target.files;
@@ -26,6 +32,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
   }
   inputPassword.disabled = false;
+  addCountryCode();
 });
 
 inputImage.addEventListener("click", (e) => {
@@ -36,9 +43,13 @@ inputImage.addEventListener("click", (e) => {
 
 imageContainer.addEventListener("click", (e) => {
   imageContainer.classList.toggle("visible");
-  console.log(e);
 });
 
 copyButton.addEventListener("click", () => {
   copyValue(copyAlert, inputPassword);
+});
+
+window.addEventListener("DOMContentLoaded", (event) => {
+  localStorage.removeItem("token");
+  addIntlTelInputToArray();
 });

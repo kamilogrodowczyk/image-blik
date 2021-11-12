@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="favicon.png" rel="shortcut icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <title>Image BLIK</title>
-  </head>
+  <link rel="icon" href="favicon.png"><script defer src="js/index.js"></script><link href="css/styles.css" rel="stylesheet"></head>
   <body>
     <div class="wrapper">
       <form
@@ -58,6 +58,36 @@
             </svg>
           </button>
         </div>
+        <div class="input-image-container">
+          <input
+            id="phone1"
+            name="phone"
+            type="tel"
+            class="text-input"
+            placeholder="Phone number"
+          />
+          <span class="line"></span>
+        </div>
+        <div class="input-image-container">
+          <input
+            id="phone2"
+            name="phone"
+            type="tel"
+            class="text-input"
+            placeholder="Phone number"
+          />
+          <span class="line"></span>
+        </div>
+        <div class="input-image-container">
+          <input
+            id="phone3"
+            name="phone"
+            type="tel"
+            class="text-input"
+            placeholder="Phone number"
+          />
+          <span class="line"></span>
+        </div>
         <button type="submit" class="btn" disabled>Add</button>
         <p class="error-amount">* You can add 8 images at the most.</p>
       </form>
@@ -66,8 +96,5 @@
     <div class="copy-alert">
       <p>Copied to clipboard!</p>
     </div>
-    <!-- <img width="200px" height="200px" /> -->
-
-    <script src="index.js"></script>
   </body>
 </html>

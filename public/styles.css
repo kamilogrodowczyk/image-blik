@@ -30,13 +30,13 @@ h2 {
 .form-wrapper {
   display: grid;
   width: 550px;
-  height: 500px;
+  /* height: 750px; */
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
   align-content: center;
   justify-items: center;
-  padding: 50px;
+  padding: 100px 50px;
   gap: 40px;
   position: relative;
 }
@@ -271,6 +271,16 @@ input[type="file" i]::-webkit-file-upload-button:hover {
 
 .download {
   font-size: 50px;
+}
+
+.iti__flag {background-image: url("/dist/assets/flags..png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {background-image: url("/dist/assets/flags@2x..png");}
+}
+
+.iti.iti--allow-dropdown {
+  width: 100%;
 }
 
 @keyframes gradient {

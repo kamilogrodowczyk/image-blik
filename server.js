@@ -3,9 +3,9 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const connection = require("./db");
-const userRouter = require("./routes/web");
+const userRouter = require("./routes/image");
 const Image = require("./models/image");
-const cors = require('cors')
+const cors = require("cors");
 connection();
 app.use(express.json());
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
@@ -31,14 +31,6 @@ app.get("/login", async (req, res) => {
   }
 });
 
-// app.get("/image", async (req, res) => {
-//   const images = await Image.find({});
-//   if (images[0]) {
-//     res.render("image.ejs");
-//   } else {
-//     res.redirect("/");
-//   }
-// });
 app.use(express.static(path.join(__dirname, "dist")));
 app.use(userRouter);
 
@@ -48,4 +40,8 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
+});
+
+app.get("*", function (req, res) {
+  res.redirect("/");
 });

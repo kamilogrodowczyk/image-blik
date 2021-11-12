@@ -9,7 +9,7 @@ module.exports = {
     download: "./public/download.js",
   },
   output: {
-    filename: "[name].js",
+    filename: "js/[name].js",
     path: path.resolve(__dirname, "dist"),
     // chunkFilename: '[id].[hash:8].js'
   },
@@ -24,23 +24,25 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(jpe?g|png|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name].[ext]'
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
-      inject: false,
+      inject: true,
       chunks: ["index"],
       filename: "index.html",
-    }),
-    new HtmlWebpackPlugin({
-      template: "./login.html",
-      inject: false,
-      chunks: ["login"],
-      filename: "login.html",
+      favicon: "./public/assets/favicon.png",
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "css/styles.css",
       chunkFilename: "[id].css",
     }),
   ],
