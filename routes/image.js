@@ -6,17 +6,17 @@ const Image = require("../models/image");
 router
   .route("/upload")
   .post(uploadImages.uploadImages, sendMessage.sendMessage);
-router.post("/login/auth", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const image = await Image.findOne({
       randomPassword: req.body.text,
     });
 
     if (!image) {
-     return res.status(400).send('Bad Authentication');
+    return res.render("login.ejs", { message: 'Bad Authentication' }); 
     }
   } catch (error) {
-    return res.render("login.ejs", { err: 'Bad Authentication' });
+    return res.render("login.ejs", { message: 'Bad Authentication' });
   }
 });
 router.get("/image", async (req, res) => {
