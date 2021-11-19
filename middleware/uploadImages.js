@@ -39,6 +39,7 @@ exports.uploadImages = (req, res, next) => {
       await Image.create([
         { photoUrl: fileLocation, randomPassword: req.body.random_password },
       ]);
+      console.log(fileLocation);
     }
     next();
   });
