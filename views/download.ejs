@@ -15,12 +15,12 @@
     <title>Image BLIK</title>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper wrapper-download">
       <button class="btn download">Download all</button>
-      <div class="image-leftbar">
+      <div class="image-box" title="Pobierz jedno">
       <% for(var i = 0; i < image.length; i++) {%>
-        <a href=<%= image[i].photoUrl %> download>
-          <img src=<%= image[i].photoUrl %> class="box" />
+        <a href=<%= image[i].photoUrl %> download class="link-download">
+          <img src=<%= image[i].photoUrl %> class="box box-download" />
         </a>
       <% } %>
       </div>

@@ -1,5 +1,5 @@
 import { saveAsZip } from "./helpers/saveAsZip";
-const imageContainer = document.querySelector(".image-leftbar");
+const imageContainer = document.querySelector(".image-box");
 const anchors = document.querySelectorAll("a");
 const images = document.querySelectorAll("img");
 const link = document.querySelector(".btn.download");

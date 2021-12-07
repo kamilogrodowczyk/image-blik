@@ -15,7 +15,7 @@
   \*************************/
 /***/ (() => {
 
-eval("const form = document.querySelector(\"form\");\r\nconst input = document.querySelector(\".text-input\");\r\n\r\nform.addEventListener(\"submit\", async (e) => {\r\n  await fetch(\"http://localhost:5000/image-json\")\r\n    .then((res) => res.json())\r\n    .then((data) =>\r\n      input.value === data[0].randomPassword\r\n        ? localStorage.setItem(\"token\", `${data[0].randomPassword}`)\r\n        : null,\r\n    )\r\n    .catch((err) => console.log(err));\r\n  const token = localStorage.getItem(\"token\");\r\n  if (token) {\r\n    window.location.href = \"/image\";\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://image-blik/./public/login.js?");
+eval("const form = document.querySelector(\"form\");\r\nconst input = document.querySelector(\".text-input\");\r\n\r\nform.addEventListener(\"submit\", async (e) => {\r\n  await fetch(\"https://image-blik.herokuapp.com/image-json\")\r\n    .then((res) => res.json())\r\n    .then((data) =>\r\n      input.value === data[0].randomPassword\r\n        ? localStorage.setItem(\"token\", `${data[0].randomPassword}`)\r\n        : null,\r\n    )\r\n    .catch((err) => console.log(err));\r\n  const token = localStorage.getItem(\"token\");\r\n  if (token) {\r\n    window.location.href = \"/image\";\r\n  }\r\n});\r\n\n\n//# sourceURL=webpack://image-blik/./public/login.js?");
 
 /***/ })
 

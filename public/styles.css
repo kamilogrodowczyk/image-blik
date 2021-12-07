@@ -4,12 +4,25 @@
   box-sizing: border-box;
   margin: 0;
 }
+
 body {
   font-family: "Roboto", sans-serif;
   background: linear-gradient(#141e30, #243b55);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
   height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 h2 {
@@ -27,10 +40,13 @@ h2 {
   justify-content: center;
 }
 
+.wrapper-download {
+  flex-direction: column;
+}
+
 .form-wrapper {
   display: grid;
   width: 550px;
-  /* height: 750px; */
   background: rgba(0, 0, 0, 0.5);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -41,13 +57,7 @@ h2 {
   position: relative;
 }
 
-.error-amount {
-  position: absolute;
-  bottom: 5%;
-  left: 5%;
-  color: white;
-  font-size: 12px;
-}
+/* INPUTS */
 
 .input-text-container {
   width: 100%;
@@ -77,7 +87,7 @@ h2 {
   font-size: 15px;
 }
 
-.line {
+.input-bottom-line {
   width: 100%;
   display: inline-block;
   height: 1px;
@@ -85,7 +95,7 @@ h2 {
   position: relative;
 }
 
-.line::after {
+.input-bottom-line::after {
   content: "";
   position: absolute;
   top: 0;
@@ -98,67 +108,14 @@ h2 {
   transform-origin: left;
 }
 
-.text-input:focus + .line::after {
+.text-input:focus + .input-bottom-line::after {
   transform: scale(1);
   transform-origin: left;
   transition: transform 0.5s ease-in-out;
 }
 
-.btn {
-  font-family: "Roboto", sans-serif;
-  border: solid 2px #03e9f4;
-  padding: 15px 35px;
-  outline: none;
-  background-color: transparent;
-  color: white;
-  text-transform: uppercase;
-  justify-self: start;
-  cursor: pointer;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.copy-btn {
-  fill: white;
-  padding: 0 10px;
-  border: none;
-}
-
-.btn:disabled {
-  background-color: #3f3f3f;
-  cursor: default;
-}
-
-.btn:disabled:hover {
-  background-color: #3f3f3f;
-  color: white;
-}
-
-.btn:hover {
-  background-color: #03e9f4;
-  color: #222;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.btn:active {
-  background-color: #83e8f4;
-  color: #222;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
 .input-image-container {
   width: 100%;
-}
-
-.error {
-  font-size: 14px;
-  color: #d3394c;
-  background-color: white;
-  padding: 5px 0 5px 5px;
-  display: none;
-}
-
-.error.active {
-  display: block;
 }
 
 input[type="file"] {
@@ -184,6 +141,87 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   transition: background-color 0.2s ease-in-out;
 }
 
+/* BUTTONS */
+
+.btn {
+  font-family: "Roboto", sans-serif;
+  border: solid 2px #03e9f4;
+  padding: 15px 35px;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  text-transform: uppercase;
+  justify-self: start;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.copy-btn {
+  fill: white;
+  padding: 0 10px;
+  border: none;
+}
+
+.btn.download {
+  font-size: 50px;
+}
+
+.btn:disabled {
+  background-color: #3f3f3f;
+  cursor: default;
+}
+
+.btn:disabled:hover {
+  background-color: #3f3f3f;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #03e9f4;
+  color: #222;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.btn:active {
+  background-color: #83e8f4;
+  color: #222;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* ANCHORS - DOWNLOAD VIEW */
+
+.link-download {
+  display: inline-block;
+}
+
+.link-download:hover {
+  opacity: .8;
+}
+
+/* ERRORS */
+
+.error {
+  font-size: 14px;
+  color: #d3394c;
+  background-color: white;
+  padding: 5px 0 5px 5px;
+  display: none;
+}
+
+.error.active {
+  display: block;
+}
+
+.error-amount {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  color: white;
+  font-size: 12px;
+}
+
+/* IMAGES - INITIAL VIEW */
+
 .image-leftbar {
   position: absolute;
   left: 0;
@@ -191,7 +229,7 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   transform: translateX(-400px);
   top: 10%;
   bottom: 10%;
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   display: grid;
   grid-template-columns: 150px 150px;
@@ -201,16 +239,16 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   padding: 50px 0;
   border-top-right-radius: 5%;
   border-bottom-right-radius: 5%;
-  transition: transform .5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .image-leftbar.visible {
   transform: translateX(0);
-  transition: transform .5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .image-leftbar::after {
-  content: 'Show';
+  content: "Show";
   position: absolute;
   left: 87%;
   padding: 10px 50px;
@@ -239,7 +277,7 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-image: url('assets/cancel.png');
+  background-image: url("assets/cancel.png");
   width: 35px;
   height: 35px;
   background-size: cover;
@@ -250,6 +288,21 @@ input[type="file" i]::-webkit-file-upload-button:hover {
 .box:hover + .box-children {
   opacity: 1;
 }
+
+/* IMAGES - DOWNLOAD VIEW */
+
+.image-box {
+  width: 60%;
+  margin-top: 50px;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 10px;
+}
+
+/* GREEN ALERT */
 
 .copy-alert {
   position: fixed;
@@ -269,28 +322,39 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   opacity: 1;
 }
 
-.download {
-  font-size: 50px;
+.iti__flag {
+  background-image: url("/dist/assets/flags..png");
 }
 
-.iti__flag {background-image: url("/dist/assets/flags..png");}
-
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  .iti__flag {background-image: url("/dist/assets/flags@2x..png");}
+  .iti__flag {
+    background-image: url("/dist/assets/flags@2x..png");
+  }
+}
+
+@media (max-width: 768px) {
+  .image-box {
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 100px);
+    gap: 30px;
+  }
+
+  .box-download {
+    width: 100px;
+    height: 100px;
+  }
+
+  .download {
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .iti.iti--allow-dropdown {
   width: 100%;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
