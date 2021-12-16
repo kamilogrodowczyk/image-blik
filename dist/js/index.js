@@ -9,6 +9,72 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./public/helpers/addCountryCode.js":
+/*!******************************************!*\
+  !*** ./public/helpers/addCountryCode.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addIntlTelInputToArray\": () => (/* binding */ addIntlTelInputToArray),\n/* harmony export */   \"addCountryCode\": () => (/* binding */ addCountryCode)\n/* harmony export */ });\n/* harmony import */ var intl_tel_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! intl-tel-input */ \"./node_modules/intl-tel-input/index.js\");\n/* harmony import */ var intl_tel_input__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(intl_tel_input__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/intl-tel-input/build/js/utils.js?1613236686837 */ \"./node_modules/intl-tel-input/build/js/utils.js?1613236686837\");\n/* harmony import */ var _node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1__);\n\n\nvar inputsPhone = document.querySelectorAll('input[name=\"phone\"]');\nvar iti = [];\nvar options = {\n  utilsScript: (_node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1___default()),\n  initialCountry: \"pl\",\n  preferredCountries: [\"pl\"],\n  onlyCountries: [\"pl\", \"de\", \"gb\", \"us\"]\n};\nvar addIntlTelInputToArray = function addIntlTelInputToArray() {\n  for (var i = 0; i < inputsPhone.length; ++i) {\n    iti[i] = intl_tel_input__WEBPACK_IMPORTED_MODULE_0___default()(inputsPhone[i], options);\n  }\n};\nvar addCountryCode = function addCountryCode() {\n  inputsPhone.forEach(function (input, index) {\n    if (input.value) {\n      input.value = \"\".concat(iti[index].getSelectedCountryData().dialCode).concat(input.value);\n    }\n  });\n};\n\n//# sourceURL=webpack://image-blik/./public/helpers/addCountryCode.js?");
+
+/***/ }),
+
+/***/ "./public/helpers/addElements.js":
+/*!***************************************!*\
+  !*** ./public/helpers/addElements.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createImages\": () => (/* binding */ createImages),\n/* harmony export */   \"appendChildren\": () => (/* binding */ appendChildren)\n/* harmony export */ });\nvar createImages = function createImages(imageUrl) {\n  var image = document.createElement(\"img\");\n  image.src = imageUrl;\n  image.className = \"box\";\n  return image;\n};\nvar appendChildren = function appendChildren(parent, children) {\n  children.forEach(function (child) {\n    parent.appendChild(child);\n  });\n};\n\n//# sourceURL=webpack://image-blik/./public/helpers/addElements.js?");
+
+/***/ }),
+
+/***/ "./public/helpers/copyValue.js":
+/*!*************************************!*\
+  !*** ./public/helpers/copyValue.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"copyValue\": () => (/* binding */ copyValue)\n/* harmony export */ });\nvar copyValue = function copyValue(copyAlert, inputPassword) {\n  if (!navigator.clipboard) {\n    inputPassword.select();\n    document.execCommand(\"copy\");\n  } else {\n    navigator.clipboard.writeText(inputPassword.value).then(function () {\n      copyAlert.classList.add(\"active\");\n      setTimeout(function () {\n        copyAlert.classList.remove(\"active\");\n      }, 3000);\n    })[\"catch\"](function () {\n      console.log(\"err\");\n    });\n  }\n};\n\n//# sourceURL=webpack://image-blik/./public/helpers/copyValue.js?");
+
+/***/ }),
+
+/***/ "./public/helpers/createPassword.js":
+/*!******************************************!*\
+  !*** ./public/helpers/createPassword.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createPassword\": () => (/* binding */ createPassword)\n/* harmony export */ });\nvar createPassword = function createPassword(length) {\n  var result = \"\";\n  var characters = \"0123456789\";\n  var charactersLength = characters.length;\n\n  for (var i = 0; i < length; i++) {\n    result += characters.charAt(Math.floor(Math.random() * charactersLength));\n  }\n\n  return result;\n};\n\n//# sourceURL=webpack://image-blik/./public/helpers/createPassword.js?");
+
+/***/ }),
+
+/***/ "./public/helpers/selectImages.js":
+/*!****************************************!*\
+  !*** ./public/helpers/selectImages.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"selectImages\": () => (/* binding */ selectImages)\n/* harmony export */ });\n/* harmony import */ var _addElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addElements */ \"./public/helpers/addElements.js\");\n\nvar selectImages = function selectImages(files, imageContainer) {\n  var _loop = function _loop(i) {\n    var reader = new FileReader();\n\n    reader.onload = function () {\n      var ele = (0,_addElements__WEBPACK_IMPORTED_MODULE_0__.createImages)(reader.result);\n      var items = Array(i + 1).fill(ele);\n      (0,_addElements__WEBPACK_IMPORTED_MODULE_0__.appendChildren)(imageContainer, items);\n    };\n\n    reader.readAsDataURL(files[i]);\n  };\n\n  for (var i = 0; i < files.length; i++) {\n    _loop(i);\n  }\n};\n\n//# sourceURL=webpack://image-blik/./public/helpers/selectImages.js?");
+
+/***/ }),
+
+/***/ "./public/index.js":
+/*!*************************!*\
+  !*** ./public/index.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./public/styles.css\");\n/* harmony import */ var intl_tel_input_build_css_intlTelInput_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! intl-tel-input/build/css/intlTelInput.css */ \"./node_modules/intl-tel-input/build/css/intlTelInput.css\");\n/* harmony import */ var _public_helpers_selectImages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/helpers/selectImages */ \"./public/helpers/selectImages.js\");\n/* harmony import */ var _public_helpers_createPassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../public/helpers/createPassword */ \"./public/helpers/createPassword.js\");\n/* harmony import */ var _public_helpers_copyValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../public/helpers/copyValue */ \"./public/helpers/copyValue.js\");\n/* harmony import */ var _public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../public/helpers/addCountryCode */ \"./public/helpers/addCountryCode.js\");\n\n\n\n\n\n\nvar inputImage = document.querySelector('input[type=\"file\"]');\nvar inputPassword = document.querySelector('input[name=\"random_password\"]');\nvar formButton = document.querySelector('button[type=\"submit\"]');\nvar form = document.querySelector(\"form\");\nvar copyButton = document.querySelector(\".copy-btn\");\nvar copyAlert = document.querySelector(\".copy-alert\");\nvar imageContainer = document.querySelector(\".image-leftbar\");\ninputImage.addEventListener(\"change\", function (e) {\n  var files = e.target.files;\n\n  if (!files.length || files.length > 8) {\n    formButton.disabled = true;\n  } else {\n    formButton.disabled = false;\n    (0,_public_helpers_selectImages__WEBPACK_IMPORTED_MODULE_2__.selectImages)(files, imageContainer);\n    inputPassword.value = (0,_public_helpers_createPassword__WEBPACK_IMPORTED_MODULE_3__.createPassword)(6);\n  }\n});\nform.addEventListener(\"submit\", function (e) {\n  if (!inputImage.value) {\n    e.preventDefault();\n  }\n\n  inputPassword.disabled = false;\n  (0,_public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__.addCountryCode)();\n});\ninputImage.addEventListener(\"click\", function (e) {\n  while (imageContainer.lastChild) {\n    imageContainer.removeChild(imageContainer.lastChild);\n  }\n});\nimageContainer.addEventListener(\"click\", function (e) {\n  imageContainer.classList.toggle(\"visible\");\n});\ncopyButton.addEventListener(\"click\", function () {\n  (0,_public_helpers_copyValue__WEBPACK_IMPORTED_MODULE_4__.copyValue)(copyAlert, inputPassword);\n});\nwindow.addEventListener(\"DOMContentLoaded\", function (event) {\n  localStorage.removeItem(\"token\");\n  (0,_public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__.addIntlTelInputToArray)();\n});\n\n//# sourceURL=webpack://image-blik/./public/index.js?");
+
+/***/ }),
+
 /***/ "./node_modules/intl-tel-input/build/js/intlTelInput.js":
 /*!**************************************************************!*\
   !*** ./node_modules/intl-tel-input/build/js/intlTelInput.js ***!
@@ -58,72 +124,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://image-blik/./public/styles.css?");
-
-/***/ }),
-
-/***/ "./public/helpers/addCountryCode.js":
-/*!******************************************!*\
-  !*** ./public/helpers/addCountryCode.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"addIntlTelInputToArray\": () => (/* binding */ addIntlTelInputToArray),\n/* harmony export */   \"addCountryCode\": () => (/* binding */ addCountryCode)\n/* harmony export */ });\n/* harmony import */ var intl_tel_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! intl-tel-input */ \"./node_modules/intl-tel-input/index.js\");\n/* harmony import */ var intl_tel_input__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(intl_tel_input__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/intl-tel-input/build/js/utils.js?1613236686837 */ \"./node_modules/intl-tel-input/build/js/utils.js?1613236686837\");\n/* harmony import */ var _node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nconst inputsPhone = document.querySelectorAll('input[name=\"phone\"]');\r\nconst iti = [];\r\n\r\nconst options = {\r\n  utilsScript: (_node_modules_intl_tel_input_build_js_utils_js_1613236686837__WEBPACK_IMPORTED_MODULE_1___default()),\r\n  initialCountry: \"pl\",\r\n  preferredCountries: [\"pl\"],\r\n  onlyCountries: [\"pl\", \"de\", \"gb\", \"us\"],\r\n};\r\n\r\nconst addIntlTelInputToArray = () => {\r\n  for (let i = 0; i < inputsPhone.length; ++i) {\r\n    iti[i] = intl_tel_input__WEBPACK_IMPORTED_MODULE_0___default()(inputsPhone[i], options);\r\n  }\r\n};\r\n\r\nconst addCountryCode = () => {\r\n  inputsPhone.forEach((input, index) => {\r\n    if (input.value) {\r\n      input.value = `${iti[index].getSelectedCountryData().dialCode}${\r\n        input.value\r\n      }`;\r\n    }\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack://image-blik/./public/helpers/addCountryCode.js?");
-
-/***/ }),
-
-/***/ "./public/helpers/addElements.js":
-/*!***************************************!*\
-  !*** ./public/helpers/addElements.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createImages\": () => (/* binding */ createImages),\n/* harmony export */   \"appendChildren\": () => (/* binding */ appendChildren)\n/* harmony export */ });\nconst createImages = (imageUrl) => {\r\n  const image = document.createElement(\"img\");\r\n  image.src = imageUrl;\r\n  image.className = \"box\";\r\n  return image;\r\n};\r\n\r\nconst appendChildren = (parent, children) => {\r\n  children.forEach((child) => {\r\n    parent.appendChild(child);\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack://image-blik/./public/helpers/addElements.js?");
-
-/***/ }),
-
-/***/ "./public/helpers/copyValue.js":
-/*!*************************************!*\
-  !*** ./public/helpers/copyValue.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"copyValue\": () => (/* binding */ copyValue)\n/* harmony export */ });\nconst copyValue = (copyAlert, inputPassword) => {\r\n  if (!navigator.clipboard) {\r\n    inputPassword.select();\r\n    document.execCommand(\"copy\");\r\n  } else {\r\n    navigator.clipboard\r\n      .writeText(inputPassword.value)\r\n      .then(function () {\r\n        copyAlert.classList.add(\"active\");\r\n        setTimeout(() => {\r\n          copyAlert.classList.remove(\"active\");\r\n        }, 3000);\r\n      })\r\n      .catch(function () {\r\n        console.log(\"err\");\r\n      });\r\n  }\r\n};\r\n\n\n//# sourceURL=webpack://image-blik/./public/helpers/copyValue.js?");
-
-/***/ }),
-
-/***/ "./public/helpers/createPassword.js":
-/*!******************************************!*\
-  !*** ./public/helpers/createPassword.js ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"createPassword\": () => (/* binding */ createPassword)\n/* harmony export */ });\nconst createPassword = (length) => {\r\n  let result = \"\";\r\n  const characters = \"0123456789\";\r\n  const charactersLength = characters.length;\r\n  for (var i = 0; i < length; i++) {\r\n    result += characters.charAt(Math.floor(Math.random() * charactersLength));\r\n  }\r\n  return result;\r\n};\r\n\n\n//# sourceURL=webpack://image-blik/./public/helpers/createPassword.js?");
-
-/***/ }),
-
-/***/ "./public/helpers/selectImages.js":
-/*!****************************************!*\
-  !*** ./public/helpers/selectImages.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"selectImages\": () => (/* binding */ selectImages)\n/* harmony export */ });\n/* harmony import */ var _addElements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addElements */ \"./public/helpers/addElements.js\");\n\r\n\r\nconst selectImages = (files, imageContainer) => {\r\n  for (let i = 0; i < files.length; i++) {\r\n    const reader = new FileReader();\r\n    reader.onload = () => {\r\n      const ele = (0,_addElements__WEBPACK_IMPORTED_MODULE_0__.createImages)(reader.result);\r\n      const items = Array(i + 1).fill(ele);\r\n      (0,_addElements__WEBPACK_IMPORTED_MODULE_0__.appendChildren)(imageContainer, items);\r\n    };\r\n    reader.readAsDataURL(files[i]);\r\n  }\r\n};\r\n\n\n//# sourceURL=webpack://image-blik/./public/helpers/selectImages.js?");
-
-/***/ }),
-
-/***/ "./public/index.js":
-/*!*************************!*\
-  !*** ./public/index.js ***!
-  \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./public/styles.css\");\n/* harmony import */ var intl_tel_input_build_css_intlTelInput_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! intl-tel-input/build/css/intlTelInput.css */ \"./node_modules/intl-tel-input/build/css/intlTelInput.css\");\n/* harmony import */ var _public_helpers_selectImages__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../public/helpers/selectImages */ \"./public/helpers/selectImages.js\");\n/* harmony import */ var _public_helpers_createPassword__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../public/helpers/createPassword */ \"./public/helpers/createPassword.js\");\n/* harmony import */ var _public_helpers_copyValue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../public/helpers/copyValue */ \"./public/helpers/copyValue.js\");\n/* harmony import */ var _public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../public/helpers/addCountryCode */ \"./public/helpers/addCountryCode.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nconst inputImage = document.querySelector('input[type=\"file\"]');\r\nconst inputPassword = document.querySelector('input[name=\"random_password\"]');\r\nconst formButton = document.querySelector('button[type=\"submit\"]');\r\nconst form = document.querySelector(\"form\");\r\nconst copyButton = document.querySelector(\".copy-btn\");\r\nconst copyAlert = document.querySelector(\".copy-alert\");\r\nconst imageContainer = document.querySelector(\".image-leftbar\");\r\n\r\ninputImage.addEventListener(\"change\", (e) => {\r\n  const files = e.target.files;\r\n  if (!files.length || files.length > 8) {\r\n    formButton.disabled = true;\r\n  } else {\r\n    formButton.disabled = false;\r\n    (0,_public_helpers_selectImages__WEBPACK_IMPORTED_MODULE_2__.selectImages)(files, imageContainer);\r\n    inputPassword.value = (0,_public_helpers_createPassword__WEBPACK_IMPORTED_MODULE_3__.createPassword)(6);\r\n  }\r\n});\r\n\r\nform.addEventListener(\"submit\", (e) => {\r\n  if (!inputImage.value) {\r\n    e.preventDefault();\r\n  }\r\n  inputPassword.disabled = false;\r\n  (0,_public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__.addCountryCode)();\r\n});\r\n\r\ninputImage.addEventListener(\"click\", (e) => {\r\n  while (imageContainer.lastChild) {\r\n    imageContainer.removeChild(imageContainer.lastChild);\r\n  }\r\n});\r\n\r\nimageContainer.addEventListener(\"click\", (e) => {\r\n  imageContainer.classList.toggle(\"visible\");\r\n});\r\n\r\ncopyButton.addEventListener(\"click\", () => {\r\n  (0,_public_helpers_copyValue__WEBPACK_IMPORTED_MODULE_4__.copyValue)(copyAlert, inputPassword);\r\n});\r\n\r\nwindow.addEventListener(\"DOMContentLoaded\", (event) => {\r\n  localStorage.removeItem(\"token\");\r\n  (0,_public_helpers_addCountryCode__WEBPACK_IMPORTED_MODULE_5__.addIntlTelInputToArray)();\r\n});\r\n\n\n//# sourceURL=webpack://image-blik/./public/index.js?");
 
 /***/ })
 

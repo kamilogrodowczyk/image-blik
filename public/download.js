@@ -8,7 +8,7 @@ const token = localStorage.getItem("token");
 if (!token) {
   window.location.href = "/login";
 } else {
-  document.body.style.display = "block";
+  document.body.style.display = "flex";
 }
 
 link.addEventListener("click", () => {
