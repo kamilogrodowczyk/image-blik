@@ -20,7 +20,7 @@
       <div class="image-box" title="Pobierz jedno">
       <% for(var i = 0; i < image.length; i++) {%>
         <a href=<%= image[i].photoUrl %> download class="link-download">
-          <img src=<%= image[i].photoUrl %> class="box box-download" />
+          <img src=<%= image[i].photoUrl %> alt=<%= imageAltText[i] %> class="box box-download" />
         </a>
       <% } %>
       </div>

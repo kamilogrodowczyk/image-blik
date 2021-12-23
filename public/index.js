@@ -43,6 +43,8 @@ inputImage.addEventListener("click", (e) => {
 
 imageContainer.addEventListener("click", (e) => {
   imageContainer.classList.toggle("visible");
+  const flag = imageContainer.classList.contains('visible');
+  imageContainer.setAttribute('aria-expanded', flag);
 });
 
 copyButton.addEventListener("click", () => {

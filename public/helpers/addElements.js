@@ -1,12 +1,15 @@
-export const createImages = (imageUrl) => {
+export const createImages = (base64Url, imageUrl) => {
   const image = document.createElement("img");
-  image.src = imageUrl;
+  image.src = base64Url;
+  image.alt = imageUrl.replace(/\.[^.]*$/, '');
   image.className = "box";
   return image;
 };
 
-export const appendChildren = (parent, children) => {
+export const appendChildren = (children) => {
+  const df = document.createDocumentFragment();
   children.forEach((child) => {
-    parent.appendChild(child);
+    df.appendChild(child);
   });
+  return df;
 };

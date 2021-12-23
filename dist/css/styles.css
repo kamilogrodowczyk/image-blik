@@ -234,6 +234,7 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   left: 0;
   width: 400px;
   height: 769px;
+  z-index: 1;
   transform: translateX(-100%);
   top: 0;
   bottom: 10%;
@@ -309,10 +310,6 @@ input[type="file" i]::-webkit-file-upload-button:hover {
   align-items: center;
   grid-template-columns: repeat(auto-fit, 200px);
   gap: 10px;
-}
-
-.iti__selected-flag {
-  z-index: 0;
 }
 
 /* GREEN ALERT */
@@ -468,7 +465,7 @@ input[type="file" i]::-webkit-file-upload-button:hover {
     right: 0;
     padding: 1px; }
   .iti__selected-flag {
-    z-index: 0;
+    z-index: 1;
     position: relative;
     display: flex;
     align-items: center;
