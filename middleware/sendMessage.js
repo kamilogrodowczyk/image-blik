@@ -9,7 +9,7 @@ exports.sendMessage = (req, res) => {
   const textMessage = `Images to download with code: ${req.body.random_password}. Valid for 1 minute`;
   for (let i = 0; i < req.body.phone.length; i++) {
     vonage.message.sendSms(
-      "TakeThis :)",
+      "ImageBlik",
       req.body.phone[i],
       textMessage,
       { type: "unicode" },
